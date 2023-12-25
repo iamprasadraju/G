@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+footer{
+    color: grey;
+    opacity: 50%;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+label, button {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#fileList {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+a {
+    font-size: 1.1em;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+a:hover {
+    color: #2980b9;
+    transform: scale(1.05);
+}
+
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    label, button {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        font-size: 0.9em;
+    }
+
+    #fileList {
+        margin-top: 15px;
+    }
+}
