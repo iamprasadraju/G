@@ -18,61 +18,8 @@
     <div id="fileList">
         <!-- Files will be displayed here -->
     </div>
-    <footer>
-        &copy; <span>Developed by Prasad Raju</span>
-    </footer>
 
-    <script>
-        async function fetchFiles() {
-            const fullUrl = document.getElementById('repoUrl').value;
-
-            const match = fullUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/i);
-            if (!match || match.length < 3) {
-                alert('Invalid GitHub repo URL.');
-                return;
-            }
-
-            const owner = match[1];
-            const repo = match[2];
-            const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents`;
-
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-
-                if (Array.isArray(data)) {
-                    const fileList = document.getElementById('fileList');
-                    fileList.innerHTML = '';
-
-                    data.forEach(file => {
-                        if (file.type === 'file') {
-                            const downloadLink = `<a href="#" onclick="downloadFile('${file.download_url}', '${file.name}')">${file.name}</a><br>`;
-                            fileList.innerHTML += downloadLink;
-                        }
-                    });
-                } else {
-                    alert('No files found in the given GitHub repo.');
-                }
-            } catch (error) {
-                alert('Error fetching data:', error);
-            }
-        }
-
-        async function downloadFile(url, name) {
-            try {
-                const response = await fetch(url);
-                const blob = await response.blob();
-                console.log("Blob created:", blob);  // Logging the blob for debugging
-                const link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = name;
-                console.log("Link created:", link);  // Logging the link for debugging
-                link.click();
-            } catch (error) {
-                alert('Error downloading file:', error);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
